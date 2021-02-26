@@ -30,4 +30,4 @@ massive({
 app.post('/auth/register', authCTRL.register)
 app.post('/auth/login', authCTRL.login)
 app.post('/auth/logout', authCTRL.logout)
-app.get('auth/user', authCTRL.getUser)
+app.get('/auth/user', authCTRL.getUser)

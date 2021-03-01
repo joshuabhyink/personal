@@ -3,6 +3,7 @@ const massive = require("massive");
 const express = require("express");
 const session = require("express-session");
 const authCTRL = require('./controllers/userController')
+const tripCTRL = require('./controllers/tripController')
 
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
 const app = express();
@@ -31,3 +32,10 @@ app.post('/auth/register', authCTRL.register)
 app.post('/auth/login', authCTRL.login)
 app.post('/auth/logout', authCTRL.logout)
 app.get('/auth/user', authCTRL.getUser)
+
+// Trip Endpoints
+app.post('/api/trip', tripCTRL.createTrip)
+app.get('/api/trips', tripCTRL.readTrips)
+app.get('/api/trip/:id', tripCTRL.readTrip)
+app.put('/api/trip/:id', tripCTRL.updateTrip)
+app.delete('/api/trip/:id', tripCTRL.deleteTrip)

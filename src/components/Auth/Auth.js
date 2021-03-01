@@ -21,7 +21,7 @@ const Auth = (props) => {
       setPassword("");
       props.history.push("/main");
     }).catch(err => {
-        console.log(err.response.data)
+        setMessage(err.response.data)
     })
   };
 

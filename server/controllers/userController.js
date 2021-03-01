@@ -6,7 +6,7 @@ module.exports = {
         const {email, username, password} = req.body
         const [result] = await db.auth_db.check_user_by_email(email)
         if(result){
-            res.status(409).send('User already exists! Try again.')
+            return res.status(409).send('User already exists! Try again.')
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
@@ -22,8 +22,9 @@ module.exports = {
         const db = req.app.get('db')
         const {email, password} = req.body
         const [foundUser] = await db.auth_db.check_user_by_email(email)
+        console.log(foundUser)
         if(!foundUser){
-            return res.status(401).send('Incorrect email or password!')
+            res.status(401).send('Incorrect email or password!')
         }
         const isAuthenticated = bcrypt.compareSync(password, foundUser.password)
         if(!isAuthenticated){

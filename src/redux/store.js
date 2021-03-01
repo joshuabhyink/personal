@@ -1,8 +1,10 @@
 import {createStore, combineReducers} from 'redux'
 import authReducer from './authReducer'
+import tripReducer from './tripReducer'
 
 const rootReducer = combineReducers({
-    authReducer
+    authReducer,
+    tripReducer
 })
 
 export default createStore(rootReducer)

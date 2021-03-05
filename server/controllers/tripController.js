@@ -1,8 +1,8 @@
 module.exports = {
     createTrip: (req, res) => {
         const db = req.app.get('db')
-        const {date, miles_traveled, outside_temp} = req.body
-        db.trip_db.add_trip(date, miles_traveled, outside_temp).then(trips => {
+        const {date, milesTraveled, outsideTemp} = req.body
+        db.trip_db.add_trip(date, milesTraveled, outsideTemp).then(trips => {
             res.status(200).send(trips)
         })
     },
@@ -21,18 +21,19 @@ module.exports = {
         
     },
     updateTrip: (req, res) => {
+        console.log(req.params)
         const db = req.app.get('db')
         const {date, miles_traveled, outside_temp} = req.body
         const {id} = req.params
-        db.trip_db.edit_trip(id, date, miles_traveled, outside_temp).then(trip => {
+        db.trip_db.edit_trip([+id, date, +miles_traveled, +outside_temp]).then(trip => {
             res.status(200).send(trip)
         })
     },
     deleteTrip: (req, res) => {
         const db = req.app.get('db')
         const {id} = req.params
-        db.trip_db.delete_trip(id).then(_ => {
-            res.sendStatus(200)
+        db.trip_db.delete_trip(id).then(trips => {
+            res.status(200).send(trips)
         })
     }
 }

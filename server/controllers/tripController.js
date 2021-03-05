@@ -22,8 +22,9 @@ module.exports = {
     },
     updateTrip: (req, res) => {
         console.log(req.params)
+        console.log(req.body)
         const db = req.app.get('db')
-        const {date, miles_traveled, outside_temp} = req.body
+        const {date, milesTraveled: miles_traveled, outsideTemp: outside_temp} = req.body
         const {id} = req.params
         db.trip_db.edit_trip([+id, date, +miles_traveled, +outside_temp]).then(trip => {
             res.status(200).send(trip)

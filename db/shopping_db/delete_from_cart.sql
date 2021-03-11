@@ -1,0 +1,3 @@
+DELETE FROM cart
+WHERE item_id = $1
+RETURNING *;

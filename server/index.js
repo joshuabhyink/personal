@@ -4,6 +4,7 @@ const express = require("express");
 const session = require("express-session");
 const authCTRL = require('./controllers/userController')
 const tripCTRL = require('./controllers/tripController')
+const shopCTRL = require('./controllers/shoppingController')
 
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
 const app = express();
@@ -39,3 +40,14 @@ app.get('/api/trips', tripCTRL.readTrips)
 app.get('/api/trip/:id', tripCTRL.readTrip)
 app.put('/api/trip/:id', tripCTRL.updateTrip)
 app.delete('/api/trip/:id', tripCTRL.deleteTrip)
+
+// Oil Endpoints
+app.get('/api/oil', tripCTRL.getOilMiles)
+app.post('/api/add-oil', tripCTRL.addOilMiles)
+app.put('/api/update-oil', tripCTRL.updateOilMiles)
+
+// Shopping Endpoints
+app.get('/api/items', shopCTRL.loadShoppingItems)
+app.get('/api/cart', shopCTRL.getCart)
+app.post('/api/add-to-cart', shopCTRL.addToCart)
+app.delete('/api/remove', shopCTRL.removeFromCart)

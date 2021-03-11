@@ -1,11 +1,19 @@
+import {useState} from 'react'
 import Auth from './components/Auth/Auth'
 import routes from './routes'
+import './components/Auth/Auth.css'
+import {loadStripe} from '@stripe/stripe-js'
+import {Elements} from '@stripe/react-stripe-js'
 
-function App() {
+const stripe = loadStripe('pk_test_51ITboKGYQXVvJTOKktB52oAUVbuF7NmgznknaRgBiLBZicHBI8uIK9N3lG0iUH53V2B8jpYWTnUA8IhhaebnXMHF00fkKhe5mV')
+
+const App = () => {
   return (
-    <div className="App">
-      {routes}
-    </div>
+    <Elements stripe={stripe}>
+      <div className="App">
+        {routes}
+      </div>
+    </Elements>
   );
 }
 

@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setTrip } from "../../redux/tripReducer";
-import { setOil } from "../../redux/oilReducer";
+import './Main.css'
 
 const Main = (props) => {
   const [trips, setTrips] = useState([]);
-  const [oilArray, setOilArray] = useState([]);
+  const [oilArray, setOilArray] = useState(null)
 
   useEffect(() => {
     axios
       .get("/api/trips")
       .then((res) => {
         console.log(res.data);
-        setTrips(res.data);
+        setTrips(res.data.trips);
       })
       .catch((err) => {
         console.log(err);
@@ -25,8 +25,7 @@ const Main = (props) => {
       .get("/api/oil")
       .then((res) => {
         console.log(res.data);
-        setOil(res.data);
-        setOilArray(res.data);
+        setOilArray(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -46,20 +45,21 @@ const Main = (props) => {
     });
   };
 
-  const setOilMiles = () => {
-    axios.post('/api/add-oil').then(res => {
-      trips.map(trip => {
-
-      })
-      props.setOil(res.data)
-      setOil(res.data)
-    })
-  }
-
   return (
-    <div>
+    <div className='main'>
+      <div>
+        <button onClick={() => logout()}>Logout</button>
+      </div>
       <div>
         <button onClick={() => props.history.push("/trips")}>+</button>
+      </div>
+      <div>
+        <button onClick={() => props.history.push('/oilmiles')}>Set Your Oil Miles</button>
+      </div>
+      <div>
+        <div>
+          Miles Remaining on Oil Change: {oilArray?.oil_miles}
+        </div>
       </div>
       {trips.map((trip) => {
         console.log(trip);
@@ -88,16 +88,6 @@ const Main = (props) => {
           </div>
         );
       })}
-      <div>
-        {/* <input
-        placeholder='Oil Miles...'
-        value={oilArray}
-        onChange={(e) => setOilArray(e.target.value)}/> */}
-        {/* <button onClick={}>Enter</button> */}
-      </div>
-      <div>
-        <button onClick={() => logout()}>Logout</button>
-      </div>
     </div>
   );
 };

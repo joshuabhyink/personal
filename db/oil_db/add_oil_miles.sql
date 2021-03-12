@@ -1,3 +1,3 @@
-INSERT INTO oil (oil_miles)
-VALUES ($1)
+INSERT INTO oil (oil_miles, user_id)
+VALUES ($1, $2)
 RETURNING *;

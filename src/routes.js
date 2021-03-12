@@ -4,6 +4,8 @@ import Signup from './components/Signup/Signup'
 import Main from './components/Main/Main'
 import Trips from './components/Trips/Trips'
 import EditTrip from './components/EditTrip/EditTrip'
+import OilMiles from './components/OilMiles/OilMiles'
+// import ShoppingMain from './components/ShoppingMain/ShoppingMain'
 
 export default (
     <Switch>
@@ -12,6 +14,8 @@ export default (
         <Route path='/main' component={Main}/>
         <Route path='/trips' component={Trips}/>
         <Route path='/edit/:trip_id' component={EditTrip}/>
+        <Route path='/oilmiles' component={OilMiles}/>
+        {/* <Route path='/shopping' component={ShoppingMain}/> */}
     </Switch>
 )
 

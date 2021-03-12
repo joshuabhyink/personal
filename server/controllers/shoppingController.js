@@ -8,10 +8,6 @@ module.exports = {
     getCart: (req, res) => {
         const db = req.app.get('db')
         db.shopping_db.select_all_cart(req.session.user.userId).then(cart => {
-            let total = cart.reduce((acc, cur) => {
-                return acc + (cur.price * cur.quantity)
-            }, 0)
-            console.log(total)
             res.status(200).send(cart)
         })
     },

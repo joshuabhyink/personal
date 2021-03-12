@@ -27,24 +27,36 @@ const Auth = (props) => {
   };
 
   return (
-    <div>
+    <div className='auth'>
       <form>
-          <h1>Miles Tracker</h1>
-          <h3>The world's easiest oil tracking website!</h3>
+        <div className='header'>
+          <h1 className='title'>Miles Tracker 2.0</h1>
+          <br/>
+          <div className='signup'>
+              <button className= 'signup-btn' onClick={() => props.history.push('/signup')}>Sign Up Here!</button>
+          </div>
+          <br/>
+          <h2>The world's easiest oil tracking website!</h2>
+        </div>
           {message}
-          <input
-          placeholder='Email...'
-          type='text'
-          value={email}
-          onChange={e => setEmail(e.target.value)}/>
-          <input
-          placeholder='Password...'
-          value={password}
-          type='password'
-          onChange={e => setPassword(e.target.value)}/>
-          <button onClick={login}>LogIn!</button>
+          <div className='login'>
+            <input
+            className='emailinput'
+            placeholder='Email...'
+            type='text'
+            value={email}
+            onChange={e => setEmail(e.target.value)}/>
+            <input
+            className='psswrdinput'
+            placeholder='Password...'
+            value={password}
+            type='password'
+            onChange={e => setPassword(e.target.value)}/>
+          </div>
+            <div className='loginbtn'>
+              <button onClick={login}>LogIn!</button>
+            </div>
       </form>
-      <button onClick={() => props.history.push('/signup')}>Sign Up Here!</button>
     </div>
   );
 };

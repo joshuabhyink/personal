@@ -45,6 +45,7 @@ const EditTrip = (props) => {
       value={outsideTemp}
       onChange={(e) => setTemp(e.target.value)}/>
       <button onClick={() => editTrip()}>Submit!</button>
+      <button onClick={() => props.history.push('/main')}>Go Back</button>
     </div>
   );
 };

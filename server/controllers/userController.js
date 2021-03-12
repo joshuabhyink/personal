@@ -33,6 +33,7 @@ module.exports = {
             userId: foundUser.user_id,
             email: foundUser.email
         }
+        console.log(req.session.user)
         return res.status(200).send(req.session.user)
     },
     logout: async (req, res) => {

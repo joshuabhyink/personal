@@ -1,7 +1,8 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS trips;
-DROP TABLE IF EXISTS oil;
+DROP TABLE IF EXISTS oil_trips;
 DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS oil;
+DROP TABLE IF EXISTS trips;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
@@ -15,16 +16,14 @@ CREATE TABLE trips (
     author_id INTEGER REFERENCES users(user_id),
     date VARCHAR(75) NOT NULL,
     miles_traveled INTEGER NOT NULL,
-    previous_miles INTEGER REFERENCES trips(miles_traveled)
     outside_temp INTEGER
 );
 
 CREATE TABLE oil (
     entry_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id),
-    original_oil_miles INTEGER NOT NULL,
-    previous_oil_miles INTEGER
-    oil_miles INTEGER NOT NULL
+    oil_miles INTEGER NOT NULL,
+    trip_id INTEGER REFERENCES trips(trip_id)
 );
 
 CREATE TABLE items (

@@ -23,38 +23,58 @@ const Signup = (props) => {
       setPassword("");
       props.history.push("/main");
     }).catch(err => {
-        setMessage(err.response.data)
+      console.log(err)
+        // setMessage(err.response.data)
     });
   };
 
   return (
     <div>
       <form>
-        <h2>Register a new account with us!</h2>
-        {message}
-        <input
-          placeholder="Email..."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeholder="Username..."
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          placeholder="Password..."
-          value={password}
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={register}>Register Here!</button>
+        <div className='header'>
+          <h2 className='headertxt'>Register a new account with us!</h2>
+            <h4>{message}</h4>
+          <div className='signinbtn'>
+            <button className='signbutton' onClick={() => props.history.push("/")}>
+              Already a user? Sign in here!
+            </button>
+          </div>
+        </div>
+        <div className='body'>
+          <div>
+            <input
+              className='email'
+              placeholder="Email..."
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              className='username'
+              placeholder="Username..."
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              className='password'
+              placeholder="Password..."
+              value={password}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        </div>
+          <div className='register'>
+            <button className='registerbtn' onClick={register}>Register Here!</button>
+          </div>
       </form>
-      <button onClick={() => props.history.push("/")}>
-        Already a user? Sign in here!
-      </button>
     </div>
   );
 };
 
-export default Signup;
+const mapStateToProps = store => store.userReducer
+
+export default connect(mapStateToProps, {setUser})(Signup);

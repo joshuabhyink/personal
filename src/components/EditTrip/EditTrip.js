@@ -16,6 +16,7 @@ const EditTrip = (props) => {
 
   const editTrip = () => {
     const body = { date, milesTraveled, outsideTemp };
+    console.log(body)
     axios.put(`/api/trip/${props.match.params.trip_id}`, body).then(() => {
         props.history.push('/main')
     //   props.setTrip(res.data);

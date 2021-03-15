@@ -7,30 +7,36 @@ import './Main.css'
 const Main = (props) => {
   const [trips, setTrips] = useState([]);
   const [oilArray, setOilArray] = useState(null)
+  const [remainingOil, setRemainingOil] = useState('')
 
   useEffect(() => {
+    const {setTrip} = props
     axios
       .get("/api/trips")
       .then((res) => {
-        console.log(res.data);
         setTrips(res.data.trips);
+        setTrip(res.data)
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [setTrip]);
 
   useEffect(() => {
     axios
       .get("/api/oil")
       .then((res) => {
-        console.log(res.data);
         setOilArray(res.data)
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+      // console.log(props)
+      // const reducer = (acc, cur) => acc + (cur.miles_traveled)
+      // // const reducer = (acc, cur) => console.log(acc, cur.miles_traveled)
+      // const milesTraveled = props.trip.trips?.reduce(reducer, 0)
+      // setRemainingOil(milesTraveled)
+    }, []);
 
   const logout = () => {
     axios.post("/auth/logout").then((_) => {
@@ -45,6 +51,8 @@ const Main = (props) => {
     });
   };
 
+  console.log(props.trip.trips)
+
   return (
     <div className='main'>
       <div>
@@ -58,11 +66,10 @@ const Main = (props) => {
       </div>
       <div>
         <div>
-          Miles Remaining on Oil Change: {oilArray?.oil_miles}
+          Miles Remaining on Oil Change: {oilArray?.oil_miles - props.trip.trips?.reduce((acc, cur) => acc + (cur.miles_traveled), 0) || oilArray?.oil_miles}
         </div>
       </div>
       {trips.map((trip) => {
-        console.log(trip);
         return (
           <div>
             <div>

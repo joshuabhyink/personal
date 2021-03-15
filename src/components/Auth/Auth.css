@@ -2,6 +2,10 @@ body {
     background-color: #b6c1cf;
 }
 
+.auth {
+    margin-top: 5%;
+}
+
 .header {
     background-color: b6c1cf;
     height: 25vh;
@@ -28,9 +32,10 @@ body {
 }
 
 .signup-btn {
-    height: 27px;
+    height: 30px;
     width: 100px;
     border: #b6c1cf;
+    border-radius: 13px;
     transition-duration: 0.4s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -39,7 +44,6 @@ body {
 }
 
 .login {
-    background-color: pink;
     margin-top: 7.5%;
     display: flex;
     align-items: center;
@@ -47,7 +51,43 @@ body {
 }
 .emailinput {
     margin-right: 2.5%;
+    border: 2px black;
+    border-radius: 13px;
+    padding-left: 7px;
+    height: 30px;
 }
 .psswrdinput {
     margin-left: 2.5%;
+    border: 2px black;
+    border-radius: 13px;
+    padding-left: 7px;
+    height: 30px;
+}
+
+.loginbtn {
+    margin-top: 2.5%;
+    display: flex;
+    justify-content: center;
+}
+.lgnbutton {
+    width: 60px;
+    height: 30px;
+    border-radius: 13px;
+    border: #d8e0eb;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lgnbutton:hover {
+    background-color: #d8e0eb;
+}
+
+.footer {
+    margin-top: 13%;
+    display: flex;
+    justify-content: center;
+}
+
+.ftrtxt {
+    font-size: 25px;
 }

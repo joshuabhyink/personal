@@ -5,11 +5,25 @@ const session = require("express-session");
 const authCTRL = require('./controllers/userController')
 const tripCTRL = require('./controllers/tripController')
 const shopCTRL = require('./controllers/shoppingController')
+const nodemailer = require('nodemailer')
 
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
+const { EMAIL, PASSWORD } = process.env;
 const app = express();
 
+let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    service: "gmail",
+    requireTLS: true,
+    auth: {
+      user: EMAIL,
+      pass: PASSWORD,
+    },
+  });
+
 app.use(express.json());
+app.set('transporter', transporter)
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
@@ -33,6 +47,7 @@ app.post('/auth/register', authCTRL.register)
 app.post('/auth/login', authCTRL.login)
 app.post('/auth/logout', authCTRL.logout)
 app.get('/auth/user', authCTRL.getUser)
+// app.post('api/sendemail', authCTRL.email)
 
 // Trip Endpoints
 app.post('/api/trip', tripCTRL.createTrip)

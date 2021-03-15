@@ -17,7 +17,7 @@
             }
             axios.post('/api/trip', {date, milesTraveled, outsideTemp}).then(res => {
                 console.log(res.data)
-                props.setTrip(res.data)
+                // props.setTrip(res.data)
                 setDate('')
                 setMiles('')
                 setTemp('')

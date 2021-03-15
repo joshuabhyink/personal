@@ -37,8 +37,9 @@ const Auth = (props) => {
           </div>
           <br/>
           <h2>The world's easiest oil tracking website!</h2>
+          <br/>
+          <h4>{message}</h4>
         </div>
-          {message}
           <div className='login'>
             <input
             className='emailinput'
@@ -54,7 +55,10 @@ const Auth = (props) => {
             onChange={e => setPassword(e.target.value)}/>
           </div>
             <div className='loginbtn'>
-              <button onClick={login}>LogIn!</button>
+              <button className='lgnbutton' onClick={login}>LogIn!</button>
+            </div>
+            <div className='footer'>
+              <h1 className='ftrtxt'>Powered by Gatorade and WiFi</h1>
             </div>
       </form>
     </div>

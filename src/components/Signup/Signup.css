@@ -1,0 +1,73 @@
+.header {
+    width: 100vw;
+    height: 15vh;
+    margin-top: 20px;
+}
+
+.headertxt {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signinbtn {
+    width: 100vw;
+    margin-right: 230px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signbutton {
+    width: 15%;
+    border: #b6c1cf;
+    height: 30px;
+    border-radius: 13px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signbutton:hover {
+    background-color: #d8e0eb;
+}
+
+.body {
+    height: 40px;
+    width: 100vw;
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email {
+    height: 30px;
+    width: 15vw;
+    margin-right: 30px;
+    padding-left: 5px;
+    border: 2px black;
+    border-radius: 13px;
+}
+
+.username {
+    height: 30px;
+    width: 15vw;
+    padding-left: 5px;
+    border: 2px black;
+    border-radius: 13px;
+}
+
+.password {
+    height: 30px;
+    width: 15vw;
+    margin-left: 30px;
+    padding-left: 5px;
+    border: 2px black;
+    border-radius: 13px;
+}
+
+.register{
+    background-color: pink;
+}
+
+.registerbtn {
+
+}

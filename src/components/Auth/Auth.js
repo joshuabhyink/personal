@@ -55,7 +55,7 @@ const Auth = (props) => {
             onChange={e => setPassword(e.target.value)}/>
           </div>
             <div className='loginbtn'>
-              <button className='lgnbutton' onClick={login}>LogIn!</button>
+              <button className='lgnbutton' onClick={login}>Login</button>
             </div>
             <div className='footer'>
               <h1 className='ftrtxt'>Powered by Gatorade and WiFi</h1>

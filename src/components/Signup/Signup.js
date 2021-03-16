@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "axios"
 import { connect } from "react-redux";
 import { setUser } from "../../redux/authReducer";
 
@@ -33,6 +33,7 @@ const Signup = (props) => {
       <form>
         <div className='header'>
           <h2 className='headertxt'>Register a new account with us!</h2>
+            <br/>
             <h4>{message}</h4>
           <div className='signinbtn'>
             <button className='signbutton' onClick={() => props.history.push("/")}>

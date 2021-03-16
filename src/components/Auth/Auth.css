@@ -33,11 +33,12 @@ body {
 
 .signup-btn {
     height: 30px;
-    width: 100px;
+    width: 130px;
     border: #b6c1cf;
-    border-radius: 13px;
+    border-radius: 20px;
     transition-duration: 0.4s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 .signup-btn:hover {
     background-color: #d8e0eb;
@@ -52,14 +53,14 @@ body {
 .emailinput {
     margin-right: 2.5%;
     border: 2px black;
-    border-radius: 13px;
+    border-radius: 20px;
     padding-left: 7px;
     height: 30px;
 }
 .psswrdinput {
     margin-left: 2.5%;
     border: 2px black;
-    border-radius: 13px;
+    border-radius: 20px;
     padding-left: 7px;
     height: 30px;
 }
@@ -70,12 +71,13 @@ body {
     justify-content: center;
 }
 .lgnbutton {
-    width: 60px;
+    width: 80px;
     height: 30px;
-    border-radius: 13px;
+    border-radius: 20px;
     border: #d8e0eb;
     transition-duration: 0.4s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .lgnbutton:hover {

@@ -1,0 +1,123 @@
+.main {
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.logoutbtn {
+    margin-left: 335px;
+    width: 25%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.logoutbtn:hover {
+    background-color: #d8e0eb;
+}
+
+.oilmilesbtn {
+    margin-right: 335px;
+    width: 38%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.oilmilesbtn:hover {
+    background-color: #d8e0eb;
+}
+
+.addbtn {
+    margin-left: 46.5%;
+    margin-top: 2.5%;
+    width: 13%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.addbtn:hover {
+    background-color: #d8e0eb;
+}
+
+.milesremaining {
+    height: 40px;
+    width: 385px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.trips {
+    margin-left: 6.5%;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.date {
+    padding: 5px;
+}
+
+.miles {
+    padding: 5px;
+}
+
+.temp {
+    padding: 5px;
+}
+
+.buttons {
+    height: 30px;
+    margin-left: 6.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edittrip {
+    margin-right: 10px;
+    width: 9%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.edittrip:hover {
+    background-color: #d8e0eb;
+}
+
+.deletetrip {
+    margin-left: 10px;
+    width: 9%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.deletetrip:hover {
+    background-color: #d8e0eb;
+}

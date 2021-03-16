@@ -1,0 +1,88 @@
+.triptitle {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tripgoback {
+    margin-left: 5%;
+    width: 6%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.tripgoback:hover {
+    background-color: #d8e0eb;
+}
+
+.tripmessage {
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.tripinputs {
+    margin-top: 7%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tripdate {
+    margin-right: 5%;
+    height: 30px;
+    padding-left: 7px;
+    border: 2px black;
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 7px;
+}
+
+.tripmiles {
+    height: 30px;
+    padding-left: 7px;
+    border: 2px black;
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 7px;
+}
+
+.triptemp {
+    margin-left: 5%;
+    height: 30px;
+    padding-left: 7px;
+    border: 2px black;
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 7px;
+}
+
+.tripsubmit {
+    margin-top: 3%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitbtn {
+    width: 7%;
+    height: 30px;
+    border: #b6c1cf;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.submitbtn:hover {
+    background-color: #d8e0eb;
+}

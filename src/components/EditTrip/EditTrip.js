@@ -31,22 +31,32 @@ const EditTrip = (props) => {
 
   return (
     <div>
-      <input
-        placeholder="Date..."
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <input
-        placeholder="# of Miles..."
-        value={milesTraveled}
-        onChange={(e) => setMiles(e.target.value)}
-      />
-      <input
-      placeholder='Outside Temperature...'
-      value={outsideTemp}
-      onChange={(e) => setTemp(e.target.value)}/>
-      <button onClick={() => editTrip()}>Submit!</button>
-      <button onClick={() => props.history.push('/main')}>Go Back</button>
+      <div className='edittitle'>
+        <h2>Oops! Edit your trip here...</h2>
+        <button className='editgoback' onClick={() => props.history.push('/main')}>Go Back</button>
+      </div>
+      <div className='editbody'>
+        <input
+          className='editdate'
+          placeholder="Date..."
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+        <input
+          className='editmiles'
+          placeholder="# of Miles..."
+          value={milesTraveled}
+          onChange={(e) => setMiles(e.target.value)}
+        />
+        <input
+        className='edittemp'
+        placeholder='Outside Temperature...'
+        value={outsideTemp}
+        onChange={(e) => setTemp(e.target.value)}/>
+      </div>
+      <div className='editsubmit'>
+        <button className='editsubmitbtn' onClick={() => editTrip()}>Submit!</button>
+      </div>
     </div>
   );
 };

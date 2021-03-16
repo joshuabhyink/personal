@@ -25,12 +25,23 @@ const OilMiles = (props) => {
 
     return (
         <div>
-            <input
-            placeholder='Enter Oil Miles...'
-            value={oilMiles}
-            onChange={(e) => setOilMiles(e.target.value)}/>
-            <button onClick={() => makeOil()}>Enter</button>
-            <button onClick={() => props.history.push('/main')}>Go Back</button>
+            <div className='oilheader'>
+                <h2 className='oiltitle'>Enter Your Oil Mileage For This Oil Change!</h2>
+                <button className='goback' onClick={() => props.history.push('/main')}>Go Back!</button>
+            </div>
+            {/* <div className='blurb'>
+                <h4>    So you just changed your vehicle's oil? Nice! Log how many miles your new oil is rated for, then
+                    add trips on the next page to track when you should change your oil again!
+                </h4>
+            </div> */}
+            <div className='oilbody'>
+                <input
+                className='oilinput'
+                placeholder='Enter Oil Miles...'
+                value={oilMiles}
+                onChange={(e) => setOilMiles(e.target.value)}/>
+                <button className='oilenter' onClick={() => makeOil()}>Enter</button>
+            </div>
         </div> 
     )
 }

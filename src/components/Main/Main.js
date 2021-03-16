@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setTrip } from "../../redux/tripReducer";
-import './Main.css'
+import "./Main.css";
 
 const Main = (props) => {
   const [trips, setTrips] = useState([]);
-  const [oilArray, setOilArray] = useState(null)
-  const [remainingOil, setRemainingOil] = useState('')
+  const [oilArray, setOilArray] = useState(null);
+  const [remainingOil, setRemainingOil] = useState("");
 
   useEffect(() => {
-    const {setTrip} = props
+    const { setTrip } = props;
     axios
       .get("/api/trips")
       .then((res) => {
         setTrips(res.data.trips);
-        setTrip(res.data)
+        setTrip(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -26,17 +26,12 @@ const Main = (props) => {
     axios
       .get("/api/oil")
       .then((res) => {
-        setOilArray(res.data)
+        setOilArray(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-      // console.log(props)
-      // const reducer = (acc, cur) => acc + (cur.miles_traveled)
-      // // const reducer = (acc, cur) => console.log(acc, cur.miles_traveled)
-      // const milesTraveled = props.trip.trips?.reduce(reducer, 0)
-      // setRemainingOil(milesTraveled)
-    }, []);
+  }, []);
 
   const logout = () => {
     axios.post("/auth/logout").then((_) => {
@@ -51,48 +46,66 @@ const Main = (props) => {
     });
   };
 
-  console.log(props.trip.trips)
+  console.log(props.trip.trips);
 
   return (
-    <div className='main'>
-      <div>
-        <button onClick={() => logout()}>Logout</button>
-      </div>
-      <div>
-        <button onClick={() => props.history.push("/trips")}>+</button>
-      </div>
-      <div>
-        <button onClick={() => props.history.push('/oilmiles')}>Set Your Oil Miles</button>
-      </div>
-      <div>
+    <div>
+      <div className="main">
         <div>
-          Miles Remaining on Oil Change: {oilArray?.oil_miles - props.trip.trips?.reduce((acc, cur) => acc + (cur.miles_traveled), 0) || oilArray?.oil_miles}
+          <button
+            className="oilmilesbtn"
+            onClick={() => props.history.push("/oilmiles")}
+          >
+            Set Your Oil Miles!
+          </button>
+        </div>
+        <h2>Your Trips!</h2>
+        <br />
+        <div>
+          <button className="logoutbtn" onClick={() => logout()}>
+            Logout
+          </button>
         </div>
       </div>
+      <button className="addbtn" onClick={() => props.history.push("/trips")}>
+        Add A Trip!
+      </button>
+      <br />
+      <br />
+      <h3 className="milesremaining">
+        Miles Remaining on Oil Change:{" "}
+        {oilArray?.oil_miles -
+          props.trip.trips?.reduce((acc, cur) => acc + cur.miles_traveled, 0) ||
+          oilArray?.oil_miles}
+      </h3>
       {trips.map((trip) => {
         return (
-          <div>
-            <div>
-              Date: {trip.date}
-              <br /># of Miles: {trip.miles_traveled}
-              <br />
-              Temperature Outside: {trip.outside_temp}
-              <br />
-              <button
-                onClick={() =>
-                  props.history.push({
-                    pathname: `/edit/${trip.trip_id}`,
-                    state: trip,
-                  })
-                }
-              >
-                Edit Trip!
-              </button>
-              <button>
-                <h2 onClick={() => removeTrip(trip.trip_id)}>X</h2>
-              </button>
-            </div>
+        <div>
+          <div className="trips">
+            <h3 className="date">Date: {trip.date}</h3>
+            <h3 className="miles"># of Miles: {trip.miles_traveled}</h3>
+            <h3 className="temp">Temperature Outside: {trip.outside_temp}</h3>
           </div>
+          <div className='buttons'>
+            <button
+              className="edittrip"
+              onClick={() =>
+                props.history.push({
+                  pathname: `/edit/${trip.trip_id}`,
+                  state: trip,
+                })
+              }
+            >
+              Edit Trip!
+            </button>{" "}
+            <button
+              className="deletetrip"
+              onClick={() => removeTrip(trip.trip_id)}
+            >
+              Delete Trip!
+            </button>
+          </div>
+        </div>
         );
       })}
     </div>

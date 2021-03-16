@@ -27,21 +27,33 @@
 
         return (
             <div>
-                {message}
-                <input
-                placeholder='Date...'
-                value={date}
-                onChange={(e) => setDate(e.target.value)}/>
-                <input
-                placeholder='# of Miles...'
-                value={milesTraveled}
-                onChange={(e) => setMiles(e.target.value)}/>
-                <input
-                placeholder='Outside Temperature...'
-                value={outsideTemp}
-                onChange={(e) => setTemp(e.target.value)}/>
-                <button onClick={makeTrip}>Submit</button>
-                <button onClick={() => props.history.push('/main')}>Go Back</button>
+                <div className='triptitle'>
+                    <h2 className='magic'>This is where the magic happens! Add your trips here...</h2>
+                    <button className='tripgoback' onClick={() => props.history.push('/main')}>Go Back</button>
+                </div>
+                <div className='tripmessage'>
+                    {message}
+                </div>
+                <div className='tripinputs'>
+                    <input
+                    className='tripdate'
+                    placeholder='Date...'
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}/>
+                    <input
+                    className='tripmiles'
+                    placeholder='# of Miles...'
+                    value={milesTraveled}
+                    onChange={(e) => setMiles(e.target.value)}/>
+                    <input
+                    className='triptemp'
+                    placeholder='Outside Temperature...'
+                    value={outsideTemp}
+                    onChange={(e) => setTemp(e.target.value)}/>
+                </div>
+                <div className='tripsubmit'>
+                    <button className='submitbtn' onClick={makeTrip}>Submit</button>
+                </div>
             </div>
         )
 
